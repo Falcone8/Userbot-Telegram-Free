@@ -1,11 +1,4 @@
 # pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020-2022 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/UsergeTeam/Userge/blob/master/LICENSE >
-#
 # All rights reserved.
 
 __all__ = ['Filter']
@@ -17,7 +10,7 @@ from pyrogram.filters import Filter as RawFilter
 from pyrogram.handlers import MessageHandler
 from pyrogram.handlers.handler import Handler
 
-from userge import logging
+from userbot import logging
 from ... import client as _client  # pylint: disable=unused-import
 
 _LOG = logging.getLogger(__name__)
@@ -26,7 +19,7 @@ _LOG = logging.getLogger(__name__)
 class Filter:
     def __init__(self,
                  filters: RawFilter,
-                 client: '_client.Userge',
+                 client: '_client.Userbot',
                  group: int,
                  scope: List[enums.ChatType],
                  only_admins: bool,
@@ -68,7 +61,7 @@ class Filter:
         self._handler: Optional[Handler] = None
 
     @classmethod
-    def parse(cls, filters: RawFilter, **kwargs: Union['_client.Userge', int, bool]) -> 'Filter':
+    def parse(cls, filters: RawFilter, **kwargs: Union['_client.Userbot', int, bool]) -> 'Filter':
         """ parse filter """
         # pylint: disable=protected-access
         return cls(**Filter._parse(filters=filters, **kwargs))
@@ -78,8 +71,8 @@ class Filter:
                allow_bots: bool,
                allow_groups: bool,
                allow_channels: bool,
-               **kwargs: Union[RawFilter, '_client.Userge', int, bool]
-               ) -> Dict[str, Union[RawFilter, '_client.Userge', int, bool]]:
+               **kwargs: Union[RawFilter, '_client.Userbot', int, bool]
+               ) -> Dict[str, Union[RawFilter, '_client.Userbot', int, bool]]:
         kwargs['check_client'] = kwargs['allow_via_bot'] and kwargs['check_client']
 
         scope = []

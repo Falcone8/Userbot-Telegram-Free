@@ -1,11 +1,4 @@
 # pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020-2022 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/UsergeTeam/Userge/blob/master/LICENSE >
-#
 # All rights reserved.
 
 __all__ = ['Message']
@@ -23,8 +16,8 @@ from pyrogram.errors import (
 )
 from pyrogram import enums
 
-from userge import config
-from userge.utils import is_command
+from userbot import config
+from userbot.utils import is_command
 from ... import client as _client  # pylint: disable=unused-import
 
 _CANCEL_CALLBACKS: Dict[str, List[Callable[[], Any]]] = {}
@@ -33,7 +26,7 @@ _ERROR_MSG_DELETE_TIMEOUT = 5
 
 
 class Message(RawMessage):
-    """ Modded Message Class For Userge """
+    """ Modded Message Class For Userbot """
     def __init__(self, mvars: Dict[str, object], module: str, **kwargs: Union[str, bool]) -> None:
         self._filtered = False
         self._filtered_input_str = ''
@@ -44,7 +37,7 @@ class Message(RawMessage):
         super().__init__(**mvars)
 
     @classmethod
-    def parse(cls, client: Union['_client.Userge', '_client.UsergeBot'],
+    def parse(cls, client: Union['_client.Userbot', '_client.UserbotBot'],
               message: Union[RawMessage, 'Message'], **kwargs: Union[str, bool]) -> 'Message':
         """ parse message """
         if isinstance(message, Message):
@@ -57,7 +50,7 @@ class Message(RawMessage):
         return cls(mvars, **kwargs)
 
     @property
-    def client(self) -> Union['_client.Userge', '_client.UsergeBot']:
+    def client(self) -> Union['_client.Userbot', '_client.UserbotBot']:
         """ returns client """
         return self._client
 
@@ -590,9 +583,9 @@ class Message(RawMessage):
 
         Returns:
             On success,
-            If Client of message is Userge:
+            If Client of message is Userbot:
                 the sent :obj:`Message` or True is returned.
-            if Client of message is UsergeBot:
+            if Client of message is UserbotBot:
                 the edited :obj:`Message` or True is returned.
         """
         if show_help:
@@ -693,9 +686,9 @@ class Message(RawMessage):
 
         Returns:
             On success,
-            If Client of message is Userge:
+            If Client of message is Userbot:
                 the sent :obj:`Message` or True is returned.
-            if Client of message is UsergeBot:
+            if Client of message is UserbotBot:
                 the edited or replied :obj:`Message` or True is returned.
         """
         try:

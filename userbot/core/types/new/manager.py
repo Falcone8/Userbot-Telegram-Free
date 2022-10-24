@@ -1,11 +1,4 @@
 # pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020-2022 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/UsergeTeam/Userge/blob/master/LICENSE >
-#
 # All rights reserved.
 
 __all__ = ['Manager']
@@ -15,7 +8,7 @@ import logging
 from itertools import islice, chain
 from typing import Union, List, Dict, Optional
 
-from userge import config
+from userbot import config
 from ..raw import Filter, Command, Plugin
 from ... import client as _client, get_collection  # pylint: disable=unused-import
 
@@ -24,8 +17,8 @@ _FLT = Union[Filter, Command]
 
 
 class Manager:
-    """ manager for userge """
-    def __init__(self, client: '_client.Userge') -> None:
+    """ manager for Userbot """
+    def __init__(self, client: '_client.Userbot') -> None:
         self._client = client
         self._event = asyncio.Event()
         self.plugins: Dict[str, Plugin] = {}

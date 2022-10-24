@@ -1,11 +1,4 @@
 # pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020-2022 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/UsergeTeam/Userge/blob/master/LICENSE >
-#
 # All rights reserved.
 
 __all__ = ['Plugin']
@@ -13,7 +6,7 @@ __all__ = ['Plugin']
 import asyncio
 from typing import Union, List, Optional, Callable, Awaitable, Any
 
-from userge import logging
+from userbot import logging
 from . import command, filter as _filter  # pylint: disable=unused-import
 from ... import client as _client  # pylint: disable=unused-import
 
@@ -25,7 +18,7 @@ _UNLOADED = 1
 
 class Plugin:
     """ plugin class """
-    def __init__(self, client: '_client.Userge', cat: str, name: str) -> None:
+    def __init__(self, client: '_client.Userbot', cat: str, name: str) -> None:
         self._client = client
         self.cat = cat
         self.name = name

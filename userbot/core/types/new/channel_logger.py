@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020-2022 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/UsergeTeam/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# pylint: disable=missing-module-docstring# All rights reserved.
 
 __all__ = ['ChannelLogger']
 
@@ -17,8 +9,8 @@ from pyrogram.errors import ChatWriteForbidden
 from pyrogram.types import Message as RawMessage
 from pyrogram.errors.exceptions import MessageTooLong
 
-from userge import config
-from userge.utils import SafeDict, get_file_id_of_media, parse_buttons
+from userbot import config
+from userbot.utils import SafeDict, get_file_id_of_media, parse_buttons
 from ..bound import message as _message  # pylint: disable=unused-import
 from ... import client as _client  # pylint: disable=unused-import
 
@@ -33,8 +25,8 @@ def _gen_string(name: str) -> str:
 
 
 class ChannelLogger:
-    """ Channel logger for Userge """
-    def __init__(self, client: Union['_client.Userge', '_client.UsergeBot'], name: str) -> None:
+    """ Channel logger for Userbot """
+    def __init__(self, client: Union['_client.Userbot', '_client.UserbotBot'], name: str) -> None:
         self._id = config.LOG_CHANNEL_ID
         self._client = client
         self._string = _gen_string(name)
@@ -149,7 +141,7 @@ class ChannelLogger:
         return message_id
 
     async def forward_stored(self,
-                             client: Union['_client.Userge', '_client.UsergeBot'],
+                             client: Union['_client.Userbot', '_client.UserbotBot'],
                              message_id: int,
                              chat_id: int,
                              user_id: int,
@@ -158,8 +150,8 @@ class ChannelLogger:
         """\nforward stored message from log channel.
 
         Parameters:
-            client (`Userge` | `UsergeBot`):
-                Pass Userge or UsergeBot.
+            client (`Userbot` | `UserbotBot`):
+                Pass Userbot or UserbotBot.
 
             message_id (`int`):
                 Message id of stored message.
