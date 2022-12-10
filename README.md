@@ -6,6 +6,3 @@
    <br>
 </p>
 <h1>Free Ubot</h1>
-<b>Pluggable Telegram UserBot</b>
-<br>
-<br>
