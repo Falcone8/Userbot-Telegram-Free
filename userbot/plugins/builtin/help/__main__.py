@@ -12,7 +12,7 @@ from pyrogram.types import (
     InlineKeyboardMarkup, InlineKeyboardButton,
     CallbackQuery, InlineQuery)
 
-from userbot import userbo, Message, config, get_collection
+from userbot import Message, config, get_collection
 from userbot.utils import is_command
 
 _CATEGORY = {
