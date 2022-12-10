@@ -67,7 +67,7 @@ class _SafeStr(str, metaclass=_SafeMeta):
             super().__setattr__(*_)
 
     def __delattr__(self, _):
-        pass
+        raise NotImplementedError()
 
     def __getattribute__(self, _):
         ___ = lambda _, __=_: _.__getattribute__(__) if __.__ne__('_') else _
